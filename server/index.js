@@ -9,11 +9,12 @@ app.use(cors());
 app.use(express.json());
 app.use("/api/user", router);
 app.use("/api/blog", blogrouter);
+import dotenv from "dotenv";
+dotenv.config();
+const PORT = process.env.PORT || 5000;
 
 mongoose
-  .connect(
-    "mongodb+srv://anujangir:2PR5zS2RGURtqzvN@mernapp.tiep5ls.mongodb.net/MERN_app?retryWrites=true&w=majority"
-  )
-  .then(() => app.listen(5000))
-  .then(() => console.log("Connected to the database"))
+  .connect(process.env.DATABASE_URL)
+  .then(() => app.listen(PORT))
+  .then(() => console.log(`Connected to the database at ${PORT}`))
   .catch((err) => console.log(err));
