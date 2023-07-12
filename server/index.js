@@ -18,7 +18,7 @@ dotenv.config();
 const PORT = process.env.PORT || 5000;
 
 mongoose
-  .connect(process.env.DATABASE_URL)
+  .connect(process.env.DATABASE_URI)
   .then(() => app.listen(PORT))
   .then(() => console.log(`Connected to the database at ${PORT}`))
   .catch((err) => console.log(err));
