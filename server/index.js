@@ -3,7 +3,9 @@ import mongoose from "mongoose";
 import router from "./routes/user-routes.js";
 import blogrouter from "./routes/blog-routes.js";
 import cors from "cors";
+import dotenv from "dotenv";
 
+dotenv.config();
 const app = express();
 app.use(
   cors({
@@ -13,12 +15,16 @@ app.use(
 app.use(express.json());
 app.use("/api/user", router);
 app.use("/api/blog", blogrouter);
-import dotenv from "dotenv";
-dotenv.config();
+
 const PORT = process.env.PORT || 5000;
 
 mongoose
-  .connect(process.env.DATABASE_URL)
+  .connect(process.env.DATABASE_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useMongoClient: true,
+  })
   .then(() => app.listen(PORT))
   .then(() => console.log(`Connected to the database at ${PORT}`))
   .catch((err) => console.log(err));
