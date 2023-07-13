@@ -17,13 +17,11 @@ app.use("/api/user", router);
 app.use("/api/blog", blogrouter);
 
 const PORT = process.env.PORT || 5000;
-
+console.log(process.env.DATABASE_URL);
 mongoose
   .connect(process.env.DATABASE_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useCreateIndex: true,
-    useMongoClient: true,
   })
   .then(() => app.listen(PORT))
   .then(() => console.log(`Connected to the database at ${PORT}`))
