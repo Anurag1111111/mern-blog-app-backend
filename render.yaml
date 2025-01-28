@@ -1,0 +1,14 @@
+# Exported from Render on 2025-01-28T06:49:58Z
+services:
+- type: web
+  name: mern-blog-app
+  runtime: node
+  repo: https://github.com/Anurag1111111/mern-blog-app
+  plan: free
+  envVars:
+  - key: DATABASE_URL
+    sync: false
+  region: singapore
+  buildCommand: npm install
+  startCommand: npm start
+version: "1"
