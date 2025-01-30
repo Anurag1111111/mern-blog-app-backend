@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 5000;
 console.log(process.env.DATABASE_URL);
 mongoose
   .connect(
-    "mongodb+srv://anujangir:2PR5zS2RGURtqzvN@mernapp.tiep5ls.mongodb.net/MERN_app?retryWrites=true&w=majority",
+    "mongodb+srv://anujangir:Go7sWh0JYOS7UGcW@mernapp.du73p.mongodb.net/?retryWrites=true&w=majority&appName=mernapp",
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
