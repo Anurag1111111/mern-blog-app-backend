@@ -12,7 +12,10 @@ app.use(cors({
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
-app.options("*", cors());
+app.options("*", cors({
+  origin: "https://anurag1111111.github.io",
+  credentials: true
+}));
 app.use(express.json());
 app.use("/api/user", router);
 app.use("/api/blog", blogrouter);
